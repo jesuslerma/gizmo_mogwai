@@ -1,0 +1,3 @@
+module GizmoMogwai
+  VERSION = "0.1.0"
+end

@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+class GizmoMogwaiGenerator < Thor
+	include Thor::Actions
+	desc "create CLASS_NAME CONTALINK_DIR" , "CLASS_NAME is the name of the new class extending 
+		Contalink::Entries::Entry, CONTALINK_DIR is where contalink project is living"
+	long_desc <<-LONGDESC
+		`entry.rb inherit` will generate a inherit class of Contalink::Entries::Entry
+		with the class name that you indicates stored in 
+		~/path_to_contalink/lib/contalink/entries/ folder.
+	LONGDESC
+	option :template_file, description: "whatever"
+	option :project_dir
+	option :spec_dir
+	def inherit(file_name)
+		GizmoMogwai.clone_mogwai(options[:project_dir], options[:template_file], options[:spec_dir])
+	end
+end
+
+GizmoMogwaiGenerator.start(ARGV)
