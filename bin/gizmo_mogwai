@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+require 'thor'
 class GizmoMogwaiGenerator < Thor
 	include Thor::Actions
 	desc "create CLASS_NAME CONTALINK_DIR" , "CLASS_NAME is the name of the new class extending 

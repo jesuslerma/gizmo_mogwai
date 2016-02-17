@@ -1,5 +1,4 @@
 require "gizmo_mogwai/version"
-require 'thor'
 require 'erb'
 require 'rspec_kickstarter'
 require 'gizmo_mogwai/generator'
