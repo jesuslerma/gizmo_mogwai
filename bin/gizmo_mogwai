@@ -1,20 +1,21 @@
 #!/usr/bin/env ruby
 require 'thor'
+require 'pry'
+require 'gizmo_mogwai'
 class GizmoMogwaiGenerator < Thor
-	include Thor::Actions
-	desc "create CLASS_NAME CONTALINK_DIR" , "CLASS_NAME is the name of the new class extending 
-		Contalink::Entries::Entry, CONTALINK_DIR is where contalink project is living"
+	desc "wet class_name" , "if you wet a mogwai, it will be cloned"
 	long_desc <<-LONGDESC
-		`entry.rb inherit` will generate a inherit class of Contalink::Entries::Entry
-		with the class name that you indicates stored in 
-		~/path_to_contalink/lib/contalink/entries/ folder.
+		`gizmo_mogwai wet` will generate a class with the specified template. It'll be stored in the --project_dir and the template will be specified by --template_file, also it will contains a spec based in the template specified by --spec_template and it will be stored in --spec_dir
 	LONGDESC
-	option :template_file, description: "whatever"
-	option :project_dir
-	option :spec_dir
-	def inherit(file_name)
-		GizmoMogwai.clone_mogwai(options[:project_dir], options[:template_file], options[:spec_dir])
+	method_option :template_file, desc: "class template", required: true
+	method_option :project_dir, desc: "project path to put the mogwai", required: true
+	method_option :spec_dir, desc: "spec path to put the mogwai test", required: true
+	method_option :spec_template, desc: "spec template", required: true
+
+	def wet(file_name)
+		GizmoMogwai::Generator.new.clone_mogwai(file_name, options)
 	end
 end
 
 GizmoMogwaiGenerator.start(ARGV)
+
