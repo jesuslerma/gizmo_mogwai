@@ -2,7 +2,7 @@
 GizmoMogwai is a gem to clone a mogwai!
 ## Installation
 ## Dependencies
-		$ gem install gizmo_mogwai
+		$ gem install rspec_kickstarter
 		$ gem install thor
 Add this line to your application's Gemfile:
 ```ruby
