@@ -19,7 +19,7 @@ Or install it yourself as:
 
 ## Usage
 
-gizmo_mogwai wet stripe --template-file samples/stripe.erb --project-dir . --spec-dir . 
+		$ gizmo_mogwai wet stripe --template-file samples/stripe.erb --project-dir . --spec-dir . 
 
 
 ## Contributing
