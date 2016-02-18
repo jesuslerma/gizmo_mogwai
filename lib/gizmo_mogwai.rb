@@ -9,7 +9,6 @@ module GizmoMogwai
 	  	template_file = options[:template_file]
 			project_dir = options[:project_dir]
 			spec_dir = options[:spec_dir]
-			spec_template = options[:spec_template]
 
 			file_path = "#{project_dir}/#{file_name}.rb"
 			template = ERB.new File.new(template_file).read, nil, "%"

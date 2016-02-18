@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require 'thor'
-require 'pry'
 require 'gizmo_mogwai'
 class GizmoMogwaiGenerator < Thor
 	desc "wet class_name" , "if you wet a mogwai, it will be cloned"
@@ -10,7 +9,6 @@ class GizmoMogwaiGenerator < Thor
 	method_option :template_file, desc: "class template", required: true
 	method_option :project_dir, desc: "project path to put the mogwai", required: true
 	method_option :spec_dir, desc: "spec path to put the mogwai test", required: true
-	method_option :spec_template, desc: "spec template", required: true
 
 	def wet(file_name)
 		GizmoMogwai::Generator.new.clone_mogwai(file_name, options)
